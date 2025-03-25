@@ -11,14 +11,8 @@ using namespace std;
 
 class basket{
 	public:
-	string population;
-	int len;
-	void fill_basket(){
-		cout<<"What are the fruits in the basket? \n";
-		getline(cin,population);
-		cout<<"\n";
-		len=sizeof(population)/sizeof(char);
-	}
+	string population[16]={"Orange","Orange","Apple","Orange","Apple","Apple","Orange","Orange","Apple","Apple","Orange","Apple","Orange","Orange","Orange","Apple"};
+	int len=16;
 };
 
 
@@ -31,7 +25,7 @@ class orange: virtual public basket{
 	void Count(){
 	
 		for(int i=0;i<len;i++){
-			if (population[i]=='o'){
+			if (population[i]=="Orange"){
 				oranges++;
 			}
 		}
@@ -48,7 +42,7 @@ class apple: virtual public basket{
 	void Count(){
 	
 		for(int i=0;i<len;i++){
-			if (population[i]=='a'){
+			if (population[i]=="Apple"){
 				apples++;
 			}
 		}
@@ -70,7 +64,6 @@ class fruit: public orange, public apple{
 };
 int main(){
 	fruit A1;
-	A1.basket::fill_basket();
 	A1.apple::Count();	
 	A1.orange::Count();
 	A1.Count();
